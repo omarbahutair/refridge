@@ -18,7 +18,8 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // MongoDB configuration
-const mongoURI = "mongodb://localhost:27017";
+const mongoURI =
+  "mongodb+srv://obahutair:qU2xlwITJezLb6kZ@cluster0.vvwdxj8.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
 mongoose
   .connect(mongoURI, {
