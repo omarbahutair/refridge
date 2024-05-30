@@ -41,9 +41,15 @@ const Navbar = () => {
             <div className="dropdown">
               <button className="dropbtn">Chef's Corner</button>
               <div className="dropdown-content">
-                <Link className="dropdownTxt" to="/recipeSearch">Recipe Search</Link>
-                <Link className="dropdownTxt" to="/nutriAnalysis">Nutrition Analysis</Link>
-                <Link className="dropdownTxt" to="/wasteAnalysis">Waste Analysis</Link>
+                <Link className="dropdownTxt" to="/recipeSearch">
+                  Recipe Search
+                </Link>
+                <Link className="dropdownTxt" to="/nutriAnalysis">
+                  Nutrition Analysis
+                </Link>
+                <Link className="dropdownTxt" to="/wasteAnalysis">
+                  Waste Analysis
+                </Link>
               </div>
             </div>
           </li>

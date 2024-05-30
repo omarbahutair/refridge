@@ -3,12 +3,26 @@ import axios from "axios";
 import { AuthContext } from "../AuthContext";
 import { Typography } from "@mui/material";
 import { Bar } from "react-chartjs-2";
+import constants from "../constants";
 
 const MonthlyQuantity = () => {
   const { loggedIn } = useContext(AuthContext);
   const [monthlyQuantity, setMonthlyQuantity] = useState([]);
-  const MONTHS=["JANUARY","FEBRUAURY","MARCH","APRIL","MAY","JUNE","JULY","AUGUST","SEPTEMBER","OCTOBER","NOVEMBER","DECEMBER"];
-  
+  const MONTHS = [
+    "JANUARY",
+    "FEBRUAURY",
+    "MARCH",
+    "APRIL",
+    "MAY",
+    "JUNE",
+    "JULY",
+    "AUGUST",
+    "SEPTEMBER",
+    "OCTOBER",
+    "NOVEMBER",
+    "DECEMBER",
+  ];
+
   useEffect(() => {
     if (loggedIn) {
       fetchMonthlyQuantity();
@@ -22,7 +36,7 @@ const MonthlyQuantity = () => {
         throw new Error("No token found");
       }
 
-      const response = await axios.get("http://localhost:5000/inventory", {
+      const response = await axios.get(`${constants.apiUrl}/inventory`, {
         headers: {
           Authorization: token,
         },
@@ -36,9 +50,9 @@ const MonthlyQuantity = () => {
         const month = new Date(item.itemPurchaseDate).getMonth();
         const quantity = item.itemQuantity;
         if (QuantityByMonth[month]) {
-            QuantityByMonth[month] += quantity;
+          QuantityByMonth[month] += quantity;
         } else {
-            QuantityByMonth[month] = quantity;
+          QuantityByMonth[month] = quantity;
         }
       });
 
@@ -63,44 +77,45 @@ const MonthlyQuantity = () => {
     scales: {
       x: {
         grid: {
-          color: "rgba(255,255,255, 0.2)", 
-          borderColor: "rgba(233, 91, 133, 1)", 
-          drawBorder: true, 
-          borderWidth: 1, 
+          color: "rgba(255,255,255, 0.2)",
+          borderColor: "rgba(233, 91, 133, 1)",
+          drawBorder: true,
+          borderWidth: 1,
         },
         ticks: {
-          color: "white"
-        }
+          color: "white",
+        },
       },
       y: {
-        grid:{
+        grid: {
           color: "rgba(255,255,255, 0.2)",
           display: true,
         },
         ticks: {
-          color: "rgba(233, 91, 133, 1)", 
-        }
+          color: "rgba(233, 91, 133, 1)",
+        },
       },
     },
   };
 
   const containerStyle = {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: '100vh',
-    flexDirection: 'column',
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "100vh",
+    flexDirection: "column",
   };
 
   const chartContainerStyle = {
-    width: '800px',
-    height: '400px',
+    width: "800px",
+    height: "400px",
   };
 
-
-  const customs = { ...axis, ...tagname};
+  const customs = { ...axis, ...tagname };
   const chartData = {
-    labels: Object.keys(monthlyQuantity).map((month) => `${MONTHS[parseInt(month)]}`),
+    labels: Object.keys(monthlyQuantity).map(
+      (month) => `${MONTHS[parseInt(month)]}`
+    ),
     datasets: [
       {
         label: "Total Quantity Purchased in g",
@@ -121,7 +136,7 @@ const MonthlyQuantity = () => {
           </div>
           {Object.keys(monthlyQuantity).length > 0 ? (
             <div className="monthly-quantity-chart" style={chartContainerStyle}>
-              <Bar data={chartData} options={customs}/>
+              <Bar data={chartData} options={customs} />
             </div>
           ) : (
             <Typography

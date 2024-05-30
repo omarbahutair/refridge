@@ -4,7 +4,7 @@ import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 import { AuthContext } from "../AuthContext";
-
+import constants from "../constants";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -14,9 +14,7 @@ const Login = () => {
   const [countdown, setCountdown] = useState(5);
   const navigate = useNavigate();
 
-
-  const {handleLoginSuccess}=useContext(AuthContext);
- 
+  const { handleLoginSuccess } = useContext(AuthContext);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -27,17 +25,13 @@ const Login = () => {
     };
 
     try {
-      const response = await axios.post(
-        "http://localhost:5000/login",
-        userData
-      );
+      const response = await axios.post(`${constants.apiUrl}/login`, userData);
       const data = response.data;
 
       // Assuming login was successful and received a token in the response
       const token = data.token;
       // Store the token in local storage or state for future authenticated requests
       localStorage.setItem("token", token);
-
 
       setloginMessage("Login Successfully");
       // Redirect to the home page or any other desired page
@@ -65,7 +59,7 @@ const Login = () => {
       <section className="login-body-container">
         <div className="login-container">
           <div className="form-container">
-          <img
+            <img
               src="https://raw.githubusercontent.com/hicodersofficial/glassmorphism-login-form/master/assets/illustration.png"
               alt="illustration"
               className="illustration"
@@ -88,7 +82,7 @@ const Login = () => {
                 LOG IN
               </Button>
             </form>
-            
+
             {loginMessage && (
               <p
                 className={`message login-msg ${

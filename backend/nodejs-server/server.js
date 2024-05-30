@@ -9,7 +9,6 @@ const app = express();
 
 // Start the server
 const port = process.env.PORT || 5000;
-app.listen(port, () => console.log(`Server running on port ${port}`));
 
 // Body parser middleware
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -19,7 +18,8 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // MongoDB configuration
-const mongoURI = "mongodb://127.0.0.1:27017/feedforward";
+const mongoURI = "mongodb://localhost:27017";
+
 mongoose
   .connect(mongoURI, {
     useNewUrlParser: true,
@@ -53,8 +53,6 @@ const verifyToken = (req, res, next) => {
   );
 };
 
-
-
 // Create a schema and model for the user
 const userSchema = new mongoose.Schema({
   name: String,
@@ -65,6 +63,10 @@ const userSchema = new mongoose.Schema({
 });
 
 const User = mongoose.model("User", userSchema);
+
+app.get("/hello", (_, res) => {
+  res.send("hi there");
+});
 
 // Define a route to handle form submissions for signup
 app.post("/signup", (req, res) => {
@@ -182,7 +184,7 @@ app.post("/donate", verifyToken, (req, res) => {
 
   // Save the donation to the donation database
   newDonation
-    .save() 
+    .save()
     .then((donation) => {
       res.json(donation);
     })
@@ -318,7 +320,7 @@ const WasteData = mongoose.model("WasteData", wasteSchema);
 app.post("/waste", verifyToken, (req, res) => {
   const { foodItem, foodQuantity, foodReason, foodWasteDate, foodAddTxt } =
     req.body;
-    const userId = req.userId;
+  const userId = req.userId;
   if (
     !foodItem ||
     !foodQuantity ||
@@ -361,3 +363,5 @@ app.get("/waste", verifyToken, (req, res) => {
       res.status(500).json({ error: "Failed to fetch inventory items" });
     });
 });
+
+app.listen(port, () => console.log(`Server running on port ${port}`));

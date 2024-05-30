@@ -3,12 +3,25 @@ import axios from "axios";
 import { AuthContext } from "../AuthContext";
 import { Typography } from "@mui/material";
 import { Bar } from "react-chartjs-2";
+import constants from "../constants";
 
 const MonthlyWaste = () => {
   const { loggedIn } = useContext(AuthContext);
   const [MonthlyWaste, setMonthlyWaste] = useState([]);
-  const MONTHS=["JANUARY","FEBRUARY","MARCH","APRIL","MAY","JUNE","JULY","AUGUST","SEPTEMBER","OCTOBER","NOVEMBER","DECEMBER"];
-  
+  const MONTHS = [
+    "JANUARY",
+    "FEBRUARY",
+    "MARCH",
+    "APRIL",
+    "MAY",
+    "JUNE",
+    "JULY",
+    "AUGUST",
+    "SEPTEMBER",
+    "OCTOBER",
+    "NOVEMBER",
+    "DECEMBER",
+  ];
 
   useEffect(() => {
     if (loggedIn) {
@@ -23,7 +36,7 @@ const MonthlyWaste = () => {
         throw new Error("No token found");
       }
 
-      const response = await axios.get("http://localhost:5000/waste", {
+      const response = await axios.get(`${constants.apiUrl}/waste`, {
         headers: {
           Authorization: token,
         },
@@ -64,46 +77,46 @@ const MonthlyWaste = () => {
     scales: {
       x: {
         grid: {
-          color: "rgba(255,255,255, 0.2)", 
-          borderColor: "rgba(233, 91, 133, 1)", 
-          drawBorder: true, 
-          borderWidth: 1, 
+          color: "rgba(255,255,255, 0.2)",
+          borderColor: "rgba(233, 91, 133, 1)",
+          drawBorder: true,
+          borderWidth: 1,
         },
         ticks: {
-          color: "white"
-        }
+          color: "white",
+        },
       },
       y: {
-        grid:{
+        grid: {
           color: "rgba(255,255,255, 0.2)",
           display: true,
         },
         ticks: {
-          color: "rgba(233, 91, 133, 1)", 
-        }
+          color: "rgba(233, 91, 133, 1)",
+        },
       },
     },
   };
 
-  
   const containerStyle = {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: '100vh',
-    flexDirection: 'column',
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "100vh",
+    flexDirection: "column",
   };
 
   const chartContainerStyle = {
-    width: '800px',
-    height: '400px',
+    width: "800px",
+    height: "400px",
   };
 
-  
-  const customs = { ...axis, ...tagname};
+  const customs = { ...axis, ...tagname };
 
   const chartData = {
-    labels: Object.keys(MonthlyWaste).map((month) => `${MONTHS[parseInt(month)]}`),
+    labels: Object.keys(MonthlyWaste).map(
+      (month) => `${MONTHS[parseInt(month)]}`
+    ),
     datasets: [
       {
         label: "Total Waste in g",
@@ -124,7 +137,7 @@ const MonthlyWaste = () => {
           </div>
           {Object.keys(MonthlyWaste).length > 0 ? (
             <div className="monthly-wasting-chart" style={chartContainerStyle}>
-              <Bar data={chartData} options={customs}/>
+              <Bar data={chartData} options={customs} />
             </div>
           ) : (
             <Typography

@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 import { Link as ScrollLink } from "react-scroll";
+import constants from "../constants";
 
 const SignUp = () => {
   const [householdName, setHouseholdName] = useState("");
@@ -24,7 +25,11 @@ const SignUp = () => {
     const passwordRegex =
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
-    if (householdPassword!=="" & householdEmail!=="" & !passwordRegex.test(householdPassword)) {
+    if (
+      (householdPassword !== "") &
+      (householdEmail !== "") &
+      !passwordRegex.test(householdPassword)
+    ) {
       setSignUpMessage(
         "Password should be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one digit, and one special character."
       );
@@ -39,13 +44,10 @@ const SignUp = () => {
     };
 
     try {
-      const response = await axios.post(
-        "http://localhost:5000/signup",
-        userData
-      );
-      
+      const response = await axios.post(`${constants.apiUrl}/signup`, userData);
+
       setSignUpMessage("User Account Created Successfully");
-      
+
       let timer = setInterval(() => {
         setCountdown((prevCountdown) => prevCountdown - 1);
       }, 1000);
@@ -69,7 +71,11 @@ const SignUp = () => {
     const passwordRegex =
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
-    if (businessPassword!=="" & businessEmail!=="" & !passwordRegex.test(businessPassword)) {
+    if (
+      (businessPassword !== "") &
+      (businessEmail !== "") &
+      !passwordRegex.test(businessPassword)
+    ) {
       setSignUpMessage(
         "Password should be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one digit, and one special character."
       );
@@ -85,7 +91,7 @@ const SignUp = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/signup",
+        `${constants.apiUrl}/signup`,
         businessData
       );
       const data = response.data;

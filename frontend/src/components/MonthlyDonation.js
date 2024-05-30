@@ -4,7 +4,8 @@ import { AuthContext } from "../AuthContext";
 import { Typography } from "@mui/material";
 import { Doughnut } from "react-chartjs-2";
 // import { Chart } from "chart.js";
-import Chart from 'chart.js/auto';
+import Chart from "chart.js/auto";
+import constants from "../constants";
 // Chart.register(Bar);
 // Chart.register(category);
 
@@ -14,10 +15,23 @@ const MonthlyDonation = () => {
   const chartContainerStyle = {
     height: "500px",
     width: "500px",
-    margin: "auto", 
+    margin: "auto",
   };
-  
-  const MONTHS=["JANUARY","FEBRUARY","MARCH","APRIL","MAY","JUNE","JULY","AUGUST","SEPTEMBER","OCTOBER","NOVEMBER","DECEMBER"];
+
+  const MONTHS = [
+    "JANUARY",
+    "FEBRUARY",
+    "MARCH",
+    "APRIL",
+    "MAY",
+    "JUNE",
+    "JULY",
+    "AUGUST",
+    "SEPTEMBER",
+    "OCTOBER",
+    "NOVEMBER",
+    "DECEMBER",
+  ];
   useEffect(() => {
     if (loggedIn) {
       fetchMonthlyDonation();
@@ -31,7 +45,7 @@ const MonthlyDonation = () => {
         throw new Error("No token found");
       }
 
-      const response = await axios.get("http://localhost:5000/donation", {
+      const response = await axios.get(`${constants.apiUrl}/donation`, {
         headers: {
           Authorization: token,
         },
@@ -45,9 +59,9 @@ const MonthlyDonation = () => {
         const month = new Date(item.donationDate).getMonth();
         const quantity = item.amount;
         if (DonationByMonth[month]) {
-            DonationByMonth[month] += quantity;
+          DonationByMonth[month] += quantity;
         } else {
-            DonationByMonth[month] = quantity;
+          DonationByMonth[month] = quantity;
         }
       });
 
@@ -70,7 +84,9 @@ const MonthlyDonation = () => {
   };
 
   const chartData = {
-    labels: Object.keys(monthlyDonation).map((month) => `${MONTHS[parseInt(month)]} `),
+    labels: Object.keys(monthlyDonation).map(
+      (month) => `${MONTHS[parseInt(month)]} `
+    ),
     datasets: [
       {
         label: "Total Donation Made in g",
@@ -91,7 +107,7 @@ const MonthlyDonation = () => {
           </div>
           {Object.keys(monthlyDonation).length > 0 ? (
             <div className="monthly-donation-chart" style={chartContainerStyle}>
-              <Doughnut data={chartData} options={tagname}/>
+              <Doughnut data={chartData} options={tagname} />
             </div>
           ) : (
             <Typography

@@ -1,10 +1,14 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import axios from "axios";
 import { AuthContext } from "../AuthContext";
 import { Typography } from "@mui/material";
+import { Camera } from "react-camera-pro";
+import constants from "../constants";
 
 const Inventory = () => {
   const { loggedIn } = useContext(AuthContext);
+  const cameraRef = useRef(null);
+  const [image, setImage] = useState(null);
   const [itemName, setItemName] = useState("");
   const [itemQuantity, setItemQuantity] = useState("");
   const [itemCost, setItemCost] = useState("");
@@ -25,12 +29,12 @@ const Inventory = () => {
         throw new Error("No token found");
       }
 
-      const response = await axios.get("http://localhost:5000/inventory", {
+      const response = await axios.get(`${constants.apiUrl}/inventory`, {
         headers: {
           Authorization: token,
         },
       });
- 
+
       const data = response.data;
       setInventoryData(data);
     } catch (error) {
@@ -74,7 +78,7 @@ const Inventory = () => {
       }
 
       const response = await axios.post(
-        "http://localhost:5000/inventory",
+        `${constants.apiUrl}/inventory`,
         inventoryData,
         {
           headers: {
@@ -104,7 +108,7 @@ const Inventory = () => {
       }
 
       const response = await axios.put(
-        `http://localhost:5000/inventory/${itemId}`,
+        `${constants.apiUrl}/inventory/${itemId}`,
         { consumed },
         {
           headers: {
@@ -128,8 +132,15 @@ const Inventory = () => {
               YOUR <span className="inventory">INVENTORY</span>
             </h1>
           </div>
-          <div className="grocery-form-container">
-            <form onSubmit={handleSubmit}>
+          <div className="grocery-form-container flex items-stretch !flex-col max-w-xl m-auto">
+            <div className="w-full">
+              <Camera aspectRatio={16 / 9} ref={cameraRef} />
+              <button onClick={() => setImage(cameraRef.current.takePhoto())}>
+                Take photo
+              </button>
+              <img src={image} alt="Taken" />
+            </div>
+            <form className="!w-full" onSubmit={handleSubmit}>
               <input
                 type="text"
                 value={itemName}
@@ -171,11 +182,11 @@ const Inventory = () => {
             <table>
               <thead>
                 <tr>
-                  <th>Item Name</th>
-                  <th>Item Quantity</th>
-                  <th>Item Cost</th>
-                  <th>Item Purchase Date</th>
-                  <th>Item Expiry Date</th>
+                  <th>Name</th>
+                  <th>Quantity</th>
+                  <th>Cost</th>
+                  <th>Purchase Date</th>
+                  <th>Expiry Date</th>
                   <th>Consumed</th>
                 </tr>
               </thead>
@@ -190,8 +201,12 @@ const Inventory = () => {
                       <td>{item.itemName}</td>
                       <td>{item.itemQuantity}</td>
                       <td>{item.itemCost}</td>
-                      <td>{new Date(item.itemPurchaseDate).toLocaleDateString()}</td>
-                      <td>{new Date(item.itemExpiryDate).toLocaleDateString()}</td>
+                      <td>
+                        {new Date(item.itemPurchaseDate).toLocaleDateString()}
+                      </td>
+                      <td>
+                        {new Date(item.itemExpiryDate).toLocaleDateString()}
+                      </td>
                       <td>
                         <input
                           type="checkbox"
@@ -216,7 +231,7 @@ const Inventory = () => {
             fontWeight: "700",
             color: "darkSalmon",
             mt: "50px",
-            height:'90vh'
+            height: "90vh",
           }}
         >
           Please log in to view the Inventory.

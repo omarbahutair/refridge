@@ -3,14 +3,25 @@ import axios from "axios";
 import { AuthContext } from "../AuthContext";
 import { Typography } from "@mui/material";
 import { Line } from "react-chartjs-2";
+import constants from "../constants";
 
 const MonthlySpending = () => {
   const { loggedIn } = useContext(AuthContext);
   const [monthlySpending, setMonthlySpending] = useState([]);
   const [loading, setLoading] = useState(true);
   const MONTHS = [
-    "JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE",
-    "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER"
+    "JANUARY",
+    "FEBRUARY",
+    "MARCH",
+    "APRIL",
+    "MAY",
+    "JUNE",
+    "JULY",
+    "AUGUST",
+    "SEPTEMBER",
+    "OCTOBER",
+    "NOVEMBER",
+    "DECEMBER",
   ];
 
   useEffect(() => {
@@ -26,7 +37,7 @@ const MonthlySpending = () => {
         throw new Error("No token found");
       }
 
-      const response = await axios.get("http://localhost:5000/inventory", {
+      const response = await axios.get(`${constants.apiUrl}/inventory`, {
         headers: {
           Authorization: token,
         },
@@ -71,8 +82,8 @@ const MonthlySpending = () => {
           borderWidth: 1,
         },
         ticks: {
-          color: "white"
-        }
+          color: "white",
+        },
       },
       y: {
         grid: {
@@ -81,7 +92,7 @@ const MonthlySpending = () => {
         },
         ticks: {
           color: "rgba(233, 91, 133, 1)",
-        }
+        },
       },
     },
   };
@@ -95,21 +106,21 @@ const MonthlySpending = () => {
         backgroundColor: "rgba(233, 91, 133, 1)",
         borderColor: "rgba(233, 91, 133, 0.8)",
         borderWidth: 2,
-        pointBackgroundColor: "rgba(233, 91, 133, 0.8)"
+        pointBackgroundColor: "rgba(233, 91, 133, 0.8)",
       },
     ],
   };
 
   const containerStyle = {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: '100vh',
-    flexDirection: 'column',
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "100vh",
+    flexDirection: "column",
   };
 
   const chartContainerStyle = {
-    width: '800px',
+    width: "800px",
     // height: '400px'
   };
 
