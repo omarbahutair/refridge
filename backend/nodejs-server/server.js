@@ -18,9 +18,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // MongoDB configuration
-const mongoURI =
-  "mongodb+srv://obahutair:qU2xlwITJezLb6kZ@cluster0.vvwdxj8.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
-
+const mongoURI ="mongodb+srv://thenewghaleb:Mq7Pm0GPqHEhyLFO@refridge.xgx6g13.mongodb.net/?retryWrites=true&w=majority&appName=refridge"
 mongoose
   .connect(mongoURI, {
     useNewUrlParser: true,
