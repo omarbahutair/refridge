@@ -4,6 +4,12 @@ import { AuthContext } from "../AuthContext";
 import { Typography } from "@mui/material";
 import { Camera } from "react-camera-pro";
 import constants from "../constants";
+import OpenAI from "openai";
+
+const openai = new OpenAI({
+  apiKey: "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",
+  dangerouslyAllowBrowser: true,
+});
 
 const Inventory = () => {
   const { loggedIn } = useContext(AuthContext);
@@ -21,6 +27,45 @@ const Inventory = () => {
       fetchInventoryData();
     }
   }, [loggedIn]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      if (!image) return;
+
+      const response = await openai.chat.completions.create({
+        model: "gpt-4o",
+        messages: [
+          {
+            role: "user",
+            content: [
+              {
+                type: "text",
+                text: "Return it in javascript object format, with data. Only return JSON not other text. I'll send multiple images of a product so you collect the information except the Catagory, you can generate a catagory based on what you see. I want it in this format. Brand:, ProductName: , ProductDescription: , Catagory:, ProductionDate: (should be in this format: yyyy-mm-dd) , ExpirationDate: (should be in this format: yyyy-mm-dd), Barcode: , Weight: (estimate it from the picture, execlude the unit from the string)",
+              },
+              {
+                type: "image_url",
+                image_url: {
+                  url: image,
+                },
+              },
+            ],
+          },
+        ],
+      });
+
+      const parts = response.choices[0].message.content.split("\n");
+      // if (image) console.log(JSON.parse(response.choices[0].message.content));
+      // console.log(.splice());
+      const item = JSON.parse(parts.splice(1, parts.length - 2).join("\n"));
+
+      setItemName(item.ProductName);
+      setItemPurchaseDate(item.ProductionDate);
+      setItemExpiryDate(item.ExpirationDate);
+      setItemQuantity(item.Weight);
+    };
+
+    void fetchData();
+  }, [image]);
 
   const fetchInventoryData = async () => {
     try {
