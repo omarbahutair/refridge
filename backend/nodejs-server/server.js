@@ -65,12 +65,12 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model("User", userSchema);
 
-app.get("/hello", (_, res) => {
+app.get("/api/hello", (_, res) => {
   res.send("hi there");
 });
 
 // Define a route to handle form submissions for signup
-app.post("/signup", (req, res) => {
+app.post("/api/api/signup", (req, res) => {
   const { name, email, password, phone, userType } = req.body;
 
   if (!name || !email || !password || !phone || !userType) {
@@ -111,7 +111,7 @@ app.post("/signup", (req, res) => {
 });
 
 // Define a route to handle form submissions for login
-app.post("/login", (req, res) => {
+app.post("/api/login", (req, res) => {
   const { email, password } = req.body;
 
   if (!email || !password) {
@@ -163,7 +163,7 @@ const donationSchema = new mongoose.Schema({
 const Donation = mongoose.model("Donation", donationSchema);
 
 // Define a route to handle form submissions for donation
-app.post("/donate", verifyToken, (req, res) => {
+app.post("/api/donate", verifyToken, (req, res) => {
   const { name, email, amount, donationDate, location, city } = req.body;
   const userId = req.userId;
   if (!name || !email || !amount || !donationDate || !location || !city) {
@@ -195,7 +195,7 @@ app.post("/donate", verifyToken, (req, res) => {
     });
 });
 
-app.get("/donation", verifyToken, (req, res) => {
+app.get("/api/donation", verifyToken, (req, res) => {
   const userId = req.userId;
 
   Donation.find({ user: userId })
@@ -224,7 +224,7 @@ const inventorySchema = new mongoose.Schema({
 const InventoryItem = mongoose.model("InventoryItem", inventorySchema);
 
 // Define a route to handle form submissions for adding an item to the inventory
-app.post("/inventory", verifyToken, (req, res) => {
+app.post("/api/inventory", verifyToken, (req, res) => {
   const { itemName, itemQuantity, itemCost, itemPurchaseDate, itemExpiryDate } =
     req.body;
   const userId = req.userId;
@@ -260,7 +260,7 @@ app.post("/inventory", verifyToken, (req, res) => {
 });
 
 // Define a route to fetch inventory items for a specific user
-app.get("/inventory", verifyToken, (req, res) => {
+app.get("/api/inventory", verifyToken, (req, res) => {
   const userId = req.userId;
 
   InventoryItem.find({ user: userId })
@@ -274,7 +274,7 @@ app.get("/inventory", verifyToken, (req, res) => {
 });
 
 // Define a route to toggle the consumed status of an inventory item
-app.put("/inventory/:id", verifyToken, (req, res) => {
+app.put("/api/inventory/:id", verifyToken, (req, res) => {
   const itemId = req.params.id;
   const userId = req.userId;
 
@@ -318,7 +318,7 @@ const wasteSchema = new mongoose.Schema({
 const WasteData = mongoose.model("WasteData", wasteSchema);
 
 //Route to handle WasteData Submission
-app.post("/waste", verifyToken, (req, res) => {
+app.post("/api/waste", verifyToken, (req, res) => {
   const { foodItem, foodQuantity, foodReason, foodWasteDate, foodAddTxt } =
     req.body;
   const userId = req.userId;
@@ -352,7 +352,7 @@ app.post("/waste", verifyToken, (req, res) => {
     });
 });
 // Define a route to fetch waste quantity for a specific user
-app.get("/waste", verifyToken, (req, res) => {
+app.get("/api/waste", verifyToken, (req, res) => {
   const userId = req.userId;
 
   WasteData.find({ user: userId })
