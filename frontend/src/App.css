@@ -9,7 +9,7 @@ body {
   margin: 0;
   padding: 0;
 
-  background: linear-gradient(0, #001810eb, #a1c8b6, #b3e5c9);
+  background: linear-gradient(0, #00b276eb, #a1c8b6, #b3e5c9);
   flex-direction: column;
   min-height: 100vh;
   z-index: -10;
@@ -24,7 +24,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #c9e1d0;
+  background-color: #e8fcf1;
   opacity: 0.1;
   z-index: -1;
 }
@@ -392,7 +392,7 @@ nav {
   display: flex;
   flex-direction: column;
   padding-bottom: 100px;
-  background: linear-gradient(0, #001810eb, #348455, #166d3a);
+  background: linear-gradient(0, #00b276eb, #a1c8b6, #b3e5c9);
 }
 
 .head-description {
@@ -531,13 +531,14 @@ nav {
 /*Inventory*/
 
 .grocery-form-body {
-  background: linear-gradient(0deg, #001810eb 35%, #166d3a);
+  background: linear-gradient(0deg, #00b276eb 35%, #b3e5c9);
   /* background: linear-gradient(0deg, #ff7e5f, #feb47b 50%); */
   font-family: Arial, sans-serif;
   background-color: #f7f7f7;
   padding-bottom: 150px;
   /* height: 100vh; */
 }
+
 
 .inventory-heading {
   /* background: linear-gradient(90deg, #9dcab1, #8bad9b); */
@@ -1738,7 +1739,7 @@ theme-btn {
   background-color: /*#e99ab1*/ white;
   padding: 20px;
   border-radius: 5px;
-  box-shadow: 0px 15px 4px #2a0361;
+  box-shadow: 0px 15px 4px #036127;
 }
 
 .card1 h1,
@@ -1748,12 +1749,12 @@ theme-btn {
 .card5 h1,
 .card6 h1 {
   margin-top: 15px;
-  color: #e3698e;
+  color: #69e373;
   font-size: 1.8rem;
 }
 
 #para-highlights {
-  color: #db3366;
+  color: #33db52;
 }
 #WasteMoney,
 #Envtimpact,
