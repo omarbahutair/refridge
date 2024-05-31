@@ -16,8 +16,8 @@ const RecipeSearch = () => {
     try {
       const response = await axios.get("https://api.edamam.com/search", {
         params: {
-          app_id: "3e4361b4",
-          app_key: "e61e338daa8d6f7cf1eda9ffcff65081",
+          app_id: "be422cc2",
+          app_key: "32893a889ce5685da73fd5bd77da6ce8",
           q: ingredients,
           diet: diet,
           calories: calories,
