@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-
+import logo from '../assets/logo.png';
 import { AuthContext } from "../AuthContext";
 
 const Navbar = () => {
@@ -10,9 +10,7 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="logo">
         <Link className="button" to="/">
-          fEED
-          <br />
-          fORWARD
+          <img src={logo} alt="ReFridge Logo" />
         </Link>
       </div>
       <div className="reveal-text">
