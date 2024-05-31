@@ -19,7 +19,7 @@ const Problems = () => {
       <div class="the-problems">
         <div class="problems-section1">
             <div class="heading-highlights">
-                <img id="highlight-heading" src={Sun} alt="Sun Photo"/><h1 id="heading-problems">Why Was FeedForward <span className="created"> Created ? <img id="underline1" src ={underline1} alt = "underline"/></span></h1><img id="arrow1" src={Arrow1} alt="arrow"/>
+                <img id="highlight-heading" src={Sun} alt="Sun Photo"/><h1 id="heading-problems">Why Was ReFridge <span className="created"> Created ? <img id="underline1" src ={underline1} alt = "underline"/></span></h1><img id="arrow1" src={Arrow1} alt="arrow"/>
                 </div>          
             <div class="cards">
                 <div class="card1">
