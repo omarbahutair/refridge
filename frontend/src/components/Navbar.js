@@ -1,20 +1,14 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import logo from '../assets/logo.png';
 import { AuthContext } from "../AuthContext";
 
 const Navbar = () => {
   const { loggedIn, handleLogout } = useContext(AuthContext);
 
   return (
-    <nav className="navbar">
-      <div className="logo">
-        <Link className="button" to="/">
-          <img src={logo} alt="ReFridge Logo" />
-        </Link>
-      </div>
-      <div className="reveal-text">
-        <ul className="buttons">
+    <nav>
+      <div className="navbar">
+        <ul>
           <li>
             <Link className="button" href="#problems">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
@@ -72,19 +66,6 @@ const Navbar = () => {
           </li>
         </ul>
       </div>
-      {loggedIn ? (
-        <div className="join-button">
-          <Link className="join-button button" to="/" onClick={handleLogout}>
-            LOG OUT
-          </Link>
-        </div>
-      ) : (
-        <div className="join-button">
-          <Link className="join-button button" to="/login">
-            LOG IN
-          </Link>
-        </div>
-      )}
     </nav>
   );
 };
