@@ -279,7 +279,7 @@ const Inventory = () => {
             height: "90vh",
           }}
         >
-          Please log in to view the Inventory.
+          Please log in to view your fridge Contnet.
         </Typography>
       )}
     </div>
