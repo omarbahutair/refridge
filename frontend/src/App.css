@@ -9,7 +9,7 @@ body {
   margin: 0;
   padding: 0;
 
-  background: linear-gradient(0, #190335eb, #3d087e, #400885);
+  background: linear-gradient(0, #001810eb, #a1c8b6, #b3e5c9);
   flex-direction: column;
   min-height: 100vh;
   z-index: -10;
@@ -24,7 +24,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #4d1296;
+  background-color: #c9e1d0;
   opacity: 0.1;
   z-index: -1;
 }
@@ -73,7 +73,7 @@ nav {
 .navbar ul:hover {
   text-decoration: underline;
 }
-/* 
+/*
 .reveal-text .buttons {
   opacity: 0;
   font-size: 1.15rem;
@@ -98,7 +98,7 @@ nav {
 }
 
 .logo a {
-  color: #e95b85;
+  color: #c9e1d0;
   font-weight: bold;
   text-decoration: none;
   margin-top: 15px;
@@ -148,7 +148,7 @@ nav {
   bottom: -2px;
   width: 0;
   height: 2px;
-  background-color: #8b2efeeb;
+  background-color: #9eceb3;
   transition: width 0.3s ease;
 }
 
@@ -238,7 +238,7 @@ nav {
   transition: color 0.3s ease;
 }
 .main-heading:hover .food-waste {
-  color: #8b2efeeb;
+  color: #9eceb3;
 }
 
 /*.main-heading:hover .head-sentence1{
@@ -282,7 +282,7 @@ nav {
   display: block;
   width: 355px;
   /* height: 55px; */
-  background: linear-gradient(0deg, /*#ff7d5d*/ #de4674, /* #ffb47b*/ #df678c);
+  background: linear-gradient(0deg, /*#ff7d5d*/ #b3e5c9, /* #ffb47b*/ #166d3a);
   font-family: "Montserrat", sans-serif;
   color: #fff;
   font-size: 24px;
@@ -291,7 +291,7 @@ nav {
   text-decoration: none;
   border-radius: 45px;
   border: none;
-  box-shadow: 0 0 10px 1px /*#ff7e5f;*/ #df678c;
+  box-shadow: 0 0 10px 1px /*#ff7e5f;*/ #b3e5c9;
   margin-top: 50px;
 }
 
@@ -301,24 +301,24 @@ nav {
 
 @keyframes disco {
   0% {
-    box-shadow: 0 0 10px #e2648a;
+    box-shadow: 0 0 10px #b3e5c9;
   }
   33% {
-    box-shadow: 0 0 20px #e2648a;
+    box-shadow: 0 0 20px #b3e5c9;
     transform: translateX(5px) rotate(3.8deg);
   }
   66% {
-    box-shadow: 0 0 20px #e2648a;
+    box-shadow: 0 0 20px #b3e5c9;
     transform: translateX(-5px) rotate(-3.8deg);
   }
   100% {
-    box-shadow: 0 0 10px #e2648a;
+    box-shadow: 0 0 10px #b3e5c9;
   }
 }
 
 .signup-button:hover {
-  background: linear-gradient(0deg, #e43066, #df678c 180%, #e43066);
-  box-shadow: 0 0 10px 2px #df678c;
+  background: linear-gradient(0deg, #9eceb3, #b3e5c9 180%, #9eceb3);
+  box-shadow: 0 0 10px 2px #b3e5c9;
 }
 .logged-in-text {
   text-transform: uppercase;
@@ -335,7 +335,7 @@ nav {
   width: 100px;
   height: 34px;
   /*background: linear-gradient(0deg, #5c0fbaeb, #9881ea 180%, #5c0fbaeb);*/
-  background-color: #5c0fbaeb;
+  background-color: #a0cbb3;
   color: #ffffff;
   font-size: 17px;
   text-align: center;
@@ -348,8 +348,8 @@ nav {
 }
 
 .join-button a:hover {
-  background: linear-gradient(0deg, #5c0fbaeb, #9881ea 180%, #5c0fbaeb);
-  box-shadow: 0 0 10px 3px #5c0fba;
+  background: linear-gradient(0deg, #7fc49c, #a0cbb3 180%, #7fc49c);
+  box-shadow: 0 0 10px 3px #7fc49c;
 }
 
 /* .meet-heroes{
@@ -366,7 +366,7 @@ nav {
     z-index: 9999;
     display: none;
   }
-  
+
   .white-screen.active {
     display: block;
   } */
@@ -392,7 +392,7 @@ nav {
   display: flex;
   flex-direction: column;
   padding-bottom: 100px;
-  background: linear-gradient(0, #190335eb, #3d087e, #400885);
+  background: linear-gradient(0, #001810eb, #348455, #166d3a);
 }
 
 .head-description {
@@ -410,7 +410,7 @@ nav {
   color: #ffffff;
 }
 .head-description .site-name {
-  color: #e95b85;
+  color: #166d3a;
   font-family: "Convergence";
   font-size: 3.3rem;
   font-weight: bold;
@@ -421,7 +421,7 @@ nav {
   font-size: 1.6rem;
   font-weight: normal;
   font-style: italic;
-  color: #df678c;
+  color: #166d3a;
   text-align: center;
 }
 
@@ -447,7 +447,7 @@ nav {
 }
 .main-container .donateform-container h1 {
   text-align: center;
-  color: #614385;
+  color: #9dcab1;
   font-family: Arial;
   font-size: 2rem;
   font-weight: bold;
@@ -457,7 +457,7 @@ nav {
   margin-top: 10px;
 }
 .main-container .donateform-container .donate-btn {
-  background: linear-gradient(0deg, #614385, #605195);
+  background: linear-gradient(0deg, #9dcab1, #8bad9b);
   color: white;
   border-color: transparent;
   margin-top: 15px;
@@ -503,7 +503,7 @@ nav {
 .password input:focus,
 .location input:focus,
 .city input:focus {
-  border-color: #614385;
+  border-color: #9dcab1;
   outline: none;
 }
 .name-id i,
@@ -531,7 +531,7 @@ nav {
 /*Inventory*/
 
 .grocery-form-body {
-  background: linear-gradient(0deg, #190335eb 35%, #400885);
+  background: linear-gradient(0deg, #001810eb 35%, #166d3a);
   /* background: linear-gradient(0deg, #ff7e5f, #feb47b 50%); */
   font-family: Arial, sans-serif;
   background-color: #f7f7f7;
@@ -540,8 +540,8 @@ nav {
 }
 
 .inventory-heading {
-  /* background: linear-gradient(90deg, #614385, #605195); */
-  background-color: #e95b85;
+  /* background: linear-gradient(90deg, #9dcab1, #8bad9b); */
+  background-color: #166d3a;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -562,7 +562,7 @@ nav {
   /* background: none; */
   padding: 20px;
   border-radius: 5px;
-  /* box-shadow: 0 0 100px 2.5px #550dad; */
+  /* box-shadow: 0 0 100px 2.5px #9eceb3; */
 }
 
 .grocery-form-container table {
@@ -572,7 +572,7 @@ nav {
   background: #fff;
   padding: 10px;
   border-radius: 10px;
-  box-shadow: 0 0 100px 1.5px #550dad;
+  box-shadow: 0 0 100px 1.5px #9eceb3;
 }
 
 .grocery-form-container th,
@@ -588,7 +588,7 @@ td {
   margin-bottom: 20px;
   width: 30%;
   background-color: #fff;
-  box-shadow: 0 0 100px 1.5px #550dad;
+  box-shadow: 0 0 100px 1.5px #9eceb3;
 }
 
 .grocery-form-container input[type="text"],
@@ -611,7 +611,7 @@ button {
   color: #908b8b;
 }
 .grocery-form-container button {
-  background: linear-gradient(0deg, #614385, #605195);
+  background: linear-gradient(0deg, #9dcab1, #8bad9b);
   color: white;
   border: none;
   cursor: pointer;
@@ -724,7 +724,7 @@ button {
   font-size: 25px;
 }
 .description .site-name {
-  color: #614385;
+  color: #9dcab1;
   font-family: "Convergence", sans-serif;
 }
 
@@ -773,7 +773,7 @@ button {
 .timer {
   font-size: 25px;
   font-weight: 800;
-  color: #7450a0;
+  color: #90a79a;
   letter-spacing: normal;
 }
 
@@ -801,10 +801,10 @@ button {
 .container-1 h1 {
   text-align: center;
   margin-bottom: 30px;
-  color: #7450a0;
+  color: #90a79a;
 }
 .container-1 .sign-upbtn {
-  background-color: #614385;
+  background-color: #9dcab1;
   color: #ffffff;
   border-color: transparent;
   margin-top: 15px;
@@ -829,7 +829,7 @@ button {
   padding-left: 2.1%;
 }
 .container-1 .form-group input:focus {
-  border-color: #614385;
+  border-color: #9dcab1;
   outline: none;
 }
 .container-1 .form-group i {
@@ -864,11 +864,11 @@ button {
   color: #555;
 }
 .container-1 .bullet-points li:before {
-  content: "✔";
+  content: "âœ”";
   position: absolute;
   left: 0;
   top: 0;
-  color: #ff7e5f;
+  color: #638c76;
   font-size: 14px;
 }
 
@@ -886,10 +886,10 @@ button {
 .container2 h1 {
   text-align: center;
   margin-bottom: 30px;
-  color: #7450a0;
+  color: #90a79a;
 }
 .container2 .sign-upbtn {
-  background-color: #614385;
+  background-color: #9dcab1;
   color: #ffffff;
   border-color: transparent;
   margin-top: 15px;
@@ -913,7 +913,7 @@ button {
   padding-left: 2.1%;
 }
 .container2 .form-group2 input:focus {
-  border-color: #614385;
+  border-color: #9dcab1;
   outline: none;
 }
 .container2 .form-group2 i {
@@ -948,11 +948,11 @@ button {
   color: #555;
 }
 .container2 .bullet-points2 li:before {
-  content: "✔";
+  content: "âœ”";
   position: absolute;
   left: 0;
   top: 0;
-  color: #ff7e5f;
+  color: #638c76;
   font-size: 14px;
 }
 
@@ -975,7 +975,7 @@ button {
 }
 
 .Month-name {
-  /* background: linear-gradient(to right, #614385, #605195); */
+  /* background: linear-gradient(to right, #9dcab1, #8bad9b); */
   --webkit-background-clip: text;
   --webkit-text-fill-color: transparent;
   /*text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);*/
@@ -1039,7 +1039,7 @@ button {
 }
 
 .card_title {
-  color: #614385;
+  color: #9dcab1;
   line-height: 15px;
 }
 
@@ -1067,7 +1067,7 @@ button {
 /*LOGIN PAGE*/
 
 .login-body {
-  background: linear-gradient(0deg, #190335eb 35%, #400885);
+  background: linear-gradient(0deg, #001810eb 35%, #166d3a);
   color: #ffffff;
   letter-spacing: 1px;
 }
@@ -1099,7 +1099,7 @@ button {
 .opacity {
   opacity: 0.7;
   font-size: 2.5rem;
-  color: #fc7f60;
+  color: #82fc60;
 }
 
 .login-container form input {
@@ -1125,7 +1125,7 @@ button {
 }
 
 .login-button {
-  background-color: #614385 !important;
+  background-color: #9dcab1 !important;
   color: #ffffff !important;
   display: block !important;
   border-radius: 5px !important;
@@ -1178,7 +1178,7 @@ button {
   position: absolute;
   left: 0;
   bottom: 2rem;
-} 
+}
 
 theme-btn {
   cursor: pointer;
@@ -1239,7 +1239,7 @@ theme-btn {
 @import url("https://fonts.googleapis.com/css2?family=Convergence&display=swap");
 .foodwaste-body {
   font-family: Arial, sans-serif;
-  background: linear-gradient(0deg, #190335eb 35%, #400885);
+  background: linear-gradient(0deg, #001810eb 35%, #166d3a);
   margin: 0;
   padding: 0;
   padding-bottom: 50px;
@@ -1277,7 +1277,7 @@ theme-btn {
   font-size: 25px;
 }
 .waste-description .site-name {
-  color: #e95b85;
+  color: #166d3a;
   font-family: "Convergence", sans-serif;
 }
 
@@ -1326,7 +1326,7 @@ theme-btn {
 .timer {
   font-size: 25px;
   font-weight: 800;
-  color: #7450a0;
+  color: #90a79a;
   letter-spacing: normal;
 }
 
@@ -1353,10 +1353,10 @@ theme-btn {
   text-align: center;
   margin-bottom: 30px;
   font-size: 2rem;
-  color: #400885;
+  color: #166d3a;
 }
 .waste-container .enter-btn {
-  background-color: #400885;
+  background-color: #166d3a;
   color: #ffffff;
   border-color: transparent;
   margin-top: 15px;
@@ -1382,7 +1382,7 @@ theme-btn {
   padding-left: 2.1%;
 }
 .waste-container .waste-form-group input:focus {
-  border-color: #614385;
+  border-color: #9dcab1;
   outline: none;
 }
 .waste-container .waste-form-group i {
@@ -1425,7 +1425,7 @@ theme-btn {
 }
 
 #additionalNotes input:focus {
-  border-color: #614385;
+  border-color: #9dcab1;
   border-radius: 0;
   outline: none;
 }
@@ -1441,17 +1441,17 @@ theme-btn {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  color: #e95b85;
+  color: #166d3a;
   font-family: "Open Sans", sans-serif;
   height: 100vh;
 }
-/* 
+/*
 .menu {
   display: flex;
 }
 
 .rs-navbar {
-  background : linear-gradient(0deg, #190335eb 35%, #400885);
+  background : linear-gradient(0deg, #001810eb 35%, #166d3a);
   width: 200px;
   padding: 20px;
   padding-bottom: 40rem;
@@ -1473,7 +1473,7 @@ theme-btn {
 }
 
 .menu li:hover {
-  background-color: #6633cc;
+  background-color: #638c76;
   text-decoration: none;
 } */
 
@@ -1499,7 +1499,7 @@ theme-btn {
 .rs-form .ingredient-input label {
   display: block;
   font-weight: bold;
-  color: #e95b85;
+  color: #166d3a;
 }
 
 .rs-form .btn-input {
@@ -1513,7 +1513,7 @@ theme-btn {
 }
 
 .rs-form .btn-input button {
-  background-color: #6633cc;
+  background-color: #638c76;
   color: #ffffff;
   border: none;
   padding: 5px 10px;
@@ -1524,7 +1524,7 @@ theme-btn {
 }
 
 .rs-form .btn-input button:hover {
-  background-color: #4d2298;
+  background-color: #638c76;
 }
 
 .rs-form .option-input {
@@ -1584,7 +1584,7 @@ theme-btn {
   margin: 0;
   padding: 0;
   background-color: #ffffff;
-  color: #e95b85;
+  color: #166d3a;
 }
 .input-container textarea {
   resize: none;
@@ -1634,7 +1634,7 @@ theme-btn {
 }
 
 #nutri-analyze {
-  background-color: #6633cc;
+  background-color: #638c76;
   color: #ffffff;
   border: none;
   width: fit-content;
@@ -1646,7 +1646,7 @@ theme-btn {
 }
 
 #nutri-analyze:hover {
-  background-color: #4d2298;
+  background-color: #638c76;
 }
 .error-message {
   color: red;
@@ -1655,7 +1655,7 @@ theme-btn {
 
 /*Problems Page*/
 #problems {
-  background-color: /*#e95b85*/ #400885;
+  background-color: /*#166d3a*/ #166d3a;
   overflow-x: hidden;
   margin: 0;
 }
@@ -1672,7 +1672,7 @@ theme-btn {
   flex-direction: row;
   justify-content: center;
   font-size: 3rem;
-  color: #e95b85;
+  color: #166d3a;
   margin-top: 50px;
   text-align: center;
 }
