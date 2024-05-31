@@ -56,9 +56,6 @@ const Problems = () => {
                         Together, we can create a sustainable future.</p></div>    
             </div>
         </div>
-        <div class="collage">
-            <img id="background-image" src={OverBuying} alt="Background Image"/>
-        </div>
     </div>
     </div>
   );
