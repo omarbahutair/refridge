@@ -51,7 +51,7 @@ const Content = () => {
         </h1>
         <p className="paragraph">
           <span className="highlight">
-            Feed Forward's technology allows businesses & people to
+            ReFridge's technology allows businesses & people to
             revolutionize <br />
             food donation, empower communities, and foster sustainable
             solutions.
