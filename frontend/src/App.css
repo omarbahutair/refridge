@@ -55,10 +55,9 @@ nav {
   display: flex;
   justify-content: space-between;
   position: sticky;
-  bottom: 0;
+  top: 0;
   width: 100%;
   background-color: #333; /* Change as needed */
-  padding: 0.5rem 1rem;
   z-index: 1000; /* Ensure it stays on top of other elements */
 }
 
